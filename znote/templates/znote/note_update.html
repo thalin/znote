@@ -1,0 +1,9 @@
+{% extends 'znote/base.html' %}
+{% block content %}
+    <div class='stackContent'>
+        <form method=POST action='{% url note_create %}'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type='submit' value='Create new'>
+        </form>
+    </div>{% endblock %}

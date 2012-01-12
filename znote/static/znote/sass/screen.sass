@@ -1,0 +1,59 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import blueprint/reset
+
+// To configure blueprint, edit the partials/base.sass file.
+@import partials/base
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import blueprint
+
+// Combine the partials into a single screen stylesheet.
+@import partials/page
+@import partials/form
+@import partials/two_col
+
++blueprint
+
+.note
+    text-align: left
+
+.codehilite
+    font-family: monospace
+    overflow: auto 
+
+#header
+    text-align: center
+
+#sidebar
+    background: lightgrey
+    ul.side-nav
+        padding: 0px
+        margin: 0px
+        list-style-type: none
+        li
+            margin: 0px
+            padding: 0px
+            text-align: center
+            a
+                width: 100%
+                height: 100%
+                padding: 0px
+                margin: 10px
+
+#content
+    background: white
+    .note
+        margin-top: 10px
+        .note-title
+            +prepend(1)
+            +column(14)
+        .note-date
+            +column(4, true)
+            +append(1)
+            float: right
+        .note-text
+            +prepend(1)
+            +column(18, true)
+
+body
+    background: grey

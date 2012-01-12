@@ -1,0 +1,10 @@
+{% extends 'znote/base.html' %}
+{% block content %}
+    <div class="note">
+        <h3>Notes</h3>
+        <ul>{% for note in note_list %}
+            {% include "znote/note_family.html" %}
+        {% endfor %}</ul>
+    </div>
+{% endblock %}
+        

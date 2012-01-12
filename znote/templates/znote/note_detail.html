@@ -1,0 +1,14 @@
+{% extends 'znote/base.html' %}
+{% block page-nav %}
+        <hr>
+        <ul class='side-nav'>
+            <li><a href='{% url note_edit note.id %}'>Edit This Note</a></li>
+            <li><a href='{% url note_create_child note.id %}'>Create a Child Note</a></li>{% endblock %}
+        </ul>
+{% block content %}
+    <div class='note'>
+        <span class='note-title'><h3>{{ note }}</h3></span>
+        <span class='note-date'><h4>Created: {{ note.created|date:"d/m/Y" }}</h4></span>
+        <div class='note-text'>{{ note.render_text|safe }}</div>
+    </div>{% endblock %}
+

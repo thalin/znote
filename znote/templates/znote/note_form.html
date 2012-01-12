@@ -1,0 +1,2 @@
+{% extends 'znote/base.html' %}
+{% block content %}<form method=POST action='{% url note_edit object.id %}'>{% csrf_token %}{{ form.as_p }}<input type='submit' value='Update!'></form>{% endblock %}

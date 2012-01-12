@@ -1,0 +1,10 @@
+{% extends 'znote/base.html' %}
+{% block content %}
+    <div class="stackContent">
+        <h3>Notes</h3>
+        <ul>{% for note in latest %}
+            <li><a href='{{ note.get_absolute_url }}'>{{ note }}</a>: {{ note.created|date:"d/m/Y" }}</li>
+        {% endfor %}</ul>
+    </div>
+{% endblock %}
+        

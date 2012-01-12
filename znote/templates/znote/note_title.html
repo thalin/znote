@@ -1,0 +1,2 @@
+{% with "znote/note_title.html" as template_name %}
+{% if note.parent %}{% with note.parent as 'note' %}{% include template_name %} &gt; {% endwith %}{% else %}{{ note.title }}{% endif %}{% endwith %}
