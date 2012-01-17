@@ -16,8 +16,11 @@ class Notebook(tmodels.MPTTModel, emodels.TitleSlugDescriptionModel):
 class NoteBase(tmodels.MPTTModel, emodels.TimeStampedModel):
     title = models.CharField(max_length=255, blank=True)
     slug = emodels.AutoSlugField(populate_from='title', blank=True)
-    notebook = models.ForeignKey(Notebook, null=True, blank=True, related_name='items')
-    parent = tmodels.TreeForeignKey('self', null=True, blank=True, related_name='children')
+    notebook = models.ForeignKey(Notebook, null=True, blank=True, related_name='%(class)s_items')
+    parent = tmodels.TreeForeignKey('self', null=True, blank=True, related_name='%(class)s_children')
+
+    class Meta:
+        abstract = True
 
     class MPTTMeta:
         order_insertion_by = ['title']
