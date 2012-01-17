@@ -20,6 +20,7 @@ setup_dict = {
                          'django-mptt>=0.5.2',
                          'django-extensions>=0.7.1',
                          'Pygments>=1.4',
+                         'django-object-permissions>=1.4.2',
                          'Markdown>=2.1.0'],
     'packages': ['znote']
 }
