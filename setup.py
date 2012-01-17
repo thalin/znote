@@ -15,6 +15,7 @@ setup_dict = {
     'author': 'Zeke Harris (thalin)',
     'author_email': 'thalin@zen-finity.com',
     'url': 'git@executor.zen-finity.com:znote.git',
+    'install_requires': ['django>=1.3', 'tastypie>=0.9.11', 'django-mptt>=0.5.2', 'django-extensions>=0.7.1'],
     'packages': ['znote']
 }
 
