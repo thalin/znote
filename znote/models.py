@@ -1,11 +1,11 @@
 from django.db import models
-from django.core.urlresolvers import reverse
-from django.db.models import Q
+#from django.core.urlresolvers import reverse
+#from django.db.models import Q
 from django_extensions.db import models as emodels
 from mptt import models as tmodels
 import os
 from tempfile import mkstemp
-import markdown
+#import markdown
 
 class Notebook(tmodels.MPTTModel, emodels.TitleSlugDescriptionModel):
     parent = tmodels.TreeForeignKey('self', null=True, blank=True, related_name='children')
@@ -15,7 +15,7 @@ class Notebook(tmodels.MPTTModel, emodels.TitleSlugDescriptionModel):
 
 class NoteBase(tmodels.MPTTModel, emodels.TimeStampedModel):
     title = models.CharField(max_length=255, blank=True)
-    slug = models.emodels.AutoSlugField(populate_from='title', blank=True)
+    slug = emodels.AutoSlugField(populate_from='title', blank=True)
     notebook = models.ForeignKey(Notebook, null=True, blank=True, related_name='items')
     parent = tmodels.TreeForeignKey('self', null=True, blank=True, related_name='children')
 
