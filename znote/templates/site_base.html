@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>{% block title %}Note Shit{% endblock %}</title>
+            <link href="{{ STATIC_URL }}znote/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+            <link href="{{ STATIC_URL }}znote/css/print.css" media="print" rel="stylesheet" type="text/css" />
+            <!--[if lt IE 8]>
+                <link href="{{ STATIC_URL }}znote/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+            <![endif]-->
+        {% block extra_head %}{% endblock %}
+    </head>
+    <body class='two-col'>
+        <div id="container">
+            <div id="header">
+                <h1>Note Shit</h1>
+            </div>
+            <div id='sidebar'>
+                <ul class='side-nav'>
+                    <li><a href='{% url note_list %}'>Notes</a></li>
+                    <li><a href='{% url note_date_list %}'>Notes by Date</a></li>
+                    <li><a href='{% url note_create %}'>New Note</a></li>
+                </ul>
+                {% block page-nav %}{% endblock %}
+            </div>
+            <div id='content'>
+                {% block content %}{% endblock %}
+            </div>
+            <div id='footer'>
+            </div>
+        </div>
+    </body>
+</html>
